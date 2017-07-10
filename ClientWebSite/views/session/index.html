@@ -1,0 +1,58 @@
+﻿<h1 class="well">Session</h1>
+<table class="table table-hover table-bordered table-responsive">
+    <thead>
+        <tr>
+            <th>Therapist Name</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Session Type</th>
+            <th>Children</th>
+            <th>Slots</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="d in show track by $index">
+            <td>{{d.therapistName}}</td>
+            <td>{{d.date|date:'dd-MM-yyyy'}}</td>
+            <td>
+                <p ng-show="d.status==0">Pending</p>
+                <p ng-show="d.status==1">Finished</p>
+                <p ng-show="d.status==2">Canceled</p>
+                <p ng-show="d.status==3">WaitingAdminConfirmation</p>
+            </td>
+            <td>
+                <p ng-show="d.type==0">Individual</p>
+                <p ng-show="d.type==1">Group</p>
+            </td>
+            <td>
+                <p ng-show="d.type==0">{{d.children[0].value}}</p>
+                <p ng-show="d.type==1" ng-repeat="c in d.children">{{c.value}}</p>
+            </td>
+            <!--<td>
+                <p ng-repeat="c in d.slots">
+                    {{c.from|date:'HH-mm'}} | {{c.to|date:'HH-mm'}}</p>
+            </td>-->
+            <td>
+                <p>
+                    {{d.slots[0].from|date:'HH-mm'}} | {{d.slots[d.slots.length-1].to|date:'HH-mm'}}</p>
+            </td>
+            <td>
+                <button class="btn btn-warning" ng-click="Showupdate(d.id)">Update</button>
+                <button class="btn btn-info" ng-click="Showdetails(d.id)">Details</button>
+                <button class="btn btn-info" ng-show="d.status==0" ng-click="group(d.id)">Create Group</button></td>
+
+        </tr>
+    </tbody>
+</table>
+<div class="row">
+    <div class="col-xs-1">
+        <button class="btn btn-primary" ng-click="create()">Create</button>
+    </div>
+    <div class="col-xs-4">
+        <select name="childdrop" id="childdrop" class="form-control">
+    <option ng-repeat="ch in child" ng-value="ch.id">{{ch.firstName}} {{ch.lastName}}</option>
+</select>
+    </div>
+
+</div>

@@ -1,0 +1,20 @@
+<legend> Sessions For Each Child <i class="fa fa-address-card-o" aria-hidden="true"></i> </legend>
+<table class="table table-hover table-bordered table-responsive">
+    <thead>
+        <tr>
+            <th>Child Name</th>
+            <th>Number of Sessions</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="d in show track by $index">
+            <td>{{d.name}}</td>
+            <td>{{d.sessionCount}}</td>
+            <td>
+                <button class="btn btn-primary" ng-click="create(d.id,d.name)"><i class="fa fa-plus" aria-hidden="true"></i> Create Session</button>
+                <button class="btn btn-success" ng-click="showSchedule(d.id)"><i class="fa fa-eye" aria-hidden="true"></i>Schedule</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,58 @@
+<div ng-show="isLoading" ng-include="'./views/loading.html'"></div>
+<div ng-hide="isLoading">
+    <form name="updateForm" id="updateForm" novalidate>
+        <legend> Update Session <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </legend>
+
+        <div class="form-group row" ng-class="{'has-error':updateForm.contactName.$invalid && updateForm.contactName.$dirty}">
+            <div class="col-xs-2">
+                <label>Date</label>
+            </div>
+            <div class="col-xs-4">
+                {{show.session.date | date:'dd/MM/yyyy'}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <ul>
+                    <li ng-repeat="child in children">
+                        <input type="checkbox" data-checkbox="" ng-value="child.id" ng-checked="child.active"> {{child.value}}
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!--<div class="form-group row">
+            <div class="col-xs-2">
+                <label>Session Status</label>
+            </div>
+            <div class="col-xs-4">
+                <select id="sessionStatus" class="form-control" required>
+          <option value="0">Pending</option>
+          <option value="1">Finished</option>
+          <option value="2">Canceled</option>
+      </select>
+            </div>
+        </div>-->
+        <div class="form-group row">
+            <div class="col-xs-2">
+                <label>Therapist</label>
+            </div>
+            <div class="col-xs-4">
+                <select id="therapist" class="form-control" ng-model="therapistId" required>
+          <option value="{{therapist.id}}" ng-repeat="therapist in therapists">{{therapist.value}}</option>
+      </select>
+            </div>
+        </div>
+
+        <button type="button" ng-click="update()" ng-disabled="updateForm.$invalid" class="btn btn-default">
+            <i class="fa fa-save" aria-hidden="true"></i> Save</button>
+
+        <button ng-click="back()" class="btn btn-success">
+            <i class="fa fa-undo" aria-hidden="true"></i> Back</button>
+
+        <button ng-click="delete()" class="btn btn-danger">
+            <i class="fa fa-remove" aria-hidden="true"></i> Cancel Session</button>
+
+
+    </form>
+</div>

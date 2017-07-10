@@ -1,0 +1,180 @@
+﻿<h3 class="well"> Update Child </h3>
+<form name="updateform" id="updateform" novalidate>
+    <div class="form-group row" ng-class="{'has-error':createForm.firstName.$invalid && createForm.firstName.$dirty}">
+        <div class="col-xs-2">
+            <label>First Name</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="firstName" name="firstName" ng-model="obj.firstName" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.firstName.$error.required">first name is required</span>
+            </span>
+        </div>
+
+    </div>
+    <div class="form-group row" ng-class="{'has-error':createForm.lastName.$invalid && createForm.lastName.$dirty}">
+        <div class="col-xs-2">
+            <label>Last Name</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="lastName" name="lastName" ng-model="obj.lastName" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.lastName.$error.required">last name is required</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group row" ng-class="{'has-error':createForm.birthDate.$invalid && createForm.birthDate.$dirty}">
+        <div class="col-xs-2">
+            <label>Birthdate</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="date" class="form-control" id="birthDate" name="birthDate" ng-model="obj.birthDate" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.birthDate.$error.required">birthdate is required</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-class="{'has-error':createForm.medicalProvider.$invalid && createForm.medicalProvider.$dirty}">
+        <div class="col-xs-2">
+            <label>Medical Provider</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="medicalProvider" name="medicalProvider" ng-model="obj.medicalProvider" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.medicalProvider.$error.required">medical provider is required</span>
+            </span>
+        </div>
+
+    </div>
+
+    <div class="form-group row" ng-class="{'has-error':createForm.medicalProviderPhone.$invalid && createForm.medicalProviderPhone.$dirty}">
+        <div class="col-xs-2">
+            <label>Medical Provider Phone</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="medicalProviderPhone" name="medicalProviderPhone" ng-model="obj.medicalProviderPhone" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.medicalProviderPhone.$error.required">medical provider phone is required</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-xs-2">
+
+            <label>Fund Group</label>
+        </div>
+        <div class="col-xs-4">
+            <select id="fundgroup" name="fundgroup" class="form-control" required>
+          <option value="0">Under 6</option>
+          <option value="1">From 6 to 18</option>
+          <option value="2">Over 18</option>
+          <option value="3">Home Funding</option>
+          <option value="4">Out of Pocket</option>
+          <option value="5">AFU</option>
+      </select>
+        </div>
+    </div>
+
+
+    <div class="form-group row" ng-class="{'has-error':createForm.clientSince.$invalid && createForm.clientSince.$dirty}">
+        <div class="col-xs-2">
+            <label>Client Since</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="date" class="form-control" id="clientSince" name="clientSince" ng-model="obj.clientSince" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.clientSince.$error.required">this field is required</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group row" ng-class="{'has-error':createForm.soLocation.$invalid && createForm.soLocation.$dirty}">
+        <div class="col-xs-2">
+            <label>O-SLocation</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="soLocation" name="soLocation" ng-model="obj.soLocation" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.soLocation.$error.required">O-SLocation is required</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-class="{'has-error':createForm.initials.$invalid && createForm.initials.$dirty}">
+        <div class="col-xs-2">
+            <label>Initials</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="initials" name="initials" ng-model="obj.initials" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.initials.$error.required">initials is required</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-class="{'has-error':createForm.billingNumber.$invalid && createForm.billingNumber.$dirty}">
+        <div class="col-xs-2">
+            <label>Billing Number</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="billingNumber" name="billingNumber" ng-model="obj.billingNumber" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.billingNumber.$error.required">billing number is required</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-class="{'has-error':createForm.amount.$invalid && createForm.amount.$dirty}">
+        <div class="col-xs-2">
+            <label>Amount</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="amount" name="amount" ng-model="obj.amount" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.amount.$error.required">amount is required</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-class="{'has-error':createForm.startTime.$invalid && createForm.startTime.$dirty}">
+        <div class="col-xs-2">
+            <label>Start Time</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="date" class="form-control" id="startTime" name="startTime" ng-model="obj.startTime" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.startTime.$error.required">start time is required</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-class="{'has-error':createForm.endTime.$invalid && createForm.endTime.$dirty}">
+        <div class="col-xs-2">
+            <label>End Time</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="date" class="form-control" id="endTime" name="endTime" ng-model="obj.endTime" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.endTime.$error.required">end time is required</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-class="{'has-error':createForm.remaining.$invalid && createForm.remaining.$dirty}">
+        <div class="col-xs-2">
+            <label>Remaining</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="remaining" name="remaining" ng-model="obj.remaining" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.remaining.$error.required">remaining is required</span>
+            </span>
+        </div>
+    </div>
+
+
+    <button type="button" ng-click="updatechild()" ng-disabled="updateform.$invalid" class="btn btn-default"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
+    <button type="button" ng-click="cancel(updateform)" class="btn btn-warning"><i class="fa fa-eraser" aria-hidden="true"></i> Reset</button>
+    <button ng-click="back()" class="btn btn-success"><i class="fa fa-undo" aria-hidden="true"></i> Back</button>
+</form>

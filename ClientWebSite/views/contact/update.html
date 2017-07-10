@@ -1,0 +1,49 @@
+<div ng-show="isLoading" ng-include="'./views/loading.html'"></div>
+<div ng-hide="isLoading">
+    <form name="createForm" id="createForm" novalidate>
+        <legend> Create Contact <i class="fa fa-address-card-o" aria-hidden="true"></i> </legend>
+
+        <div class="form-group row" ng-class="{'has-error':createForm.contactName.$invalid && createForm.contactName.$dirty}">
+            <div class="col-xs-2">
+                <label>Contact Name</label>
+            </div>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="contactName" name="contactName" placeholder="Contact Name" ng-model="contactName" required>
+            </div>
+            <div class="col-xs-4">
+                <span ng-show="createForm.contactName.$error.required">Contact name is required.</span>
+            </div>
+        </div>
+
+        <div class="form-group row" ng-class="{'has-error':createForm.number.$invalid && createForm.number.$dirty}">
+            <div class="col-xs-2">
+                <label>Number</label>
+            </div>
+            <div class="col-xs-4">
+                <input type="tel" class="form-control" id="number" name="number" ng-model="number" placeholder="Number" ng-maxlength="7" required>
+            </div>
+            <div class="col-xs-4">
+                <span ng-show="createForm.number.$error.required">Number is required.</span>
+                <span ng-show="createForm.number.$error.ng-maxlength">Number is over.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-xs-2">
+                <label>Contact Type</label>
+            </div>
+            <div class="col-xs-4">
+                <select id="contactType" class="form-control" required>
+          <option value="0">Emergency</option>
+          <option value="1">Home</option>
+          <option value="2">Cell Phone</option>
+          <option value="3">Work</option>
+      </select>
+            </div>
+        </div>
+        <button type="button" ng-click="sendData()" ng-disabled="createForm.$invalid" class="btn btn-default">
+            <i class="fa fa-save" aria-hidden="true"></i> Save</button>
+        <button ng-click="back()" class="btn btn-success">
+            <i class="fa fa-undo" aria-hidden="true"></i> Back</button>
+    </form>
+</div>

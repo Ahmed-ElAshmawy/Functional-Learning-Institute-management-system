@@ -1,0 +1,50 @@
+<h1>
+    Child availability
+</h1>
+<div class="row">
+    <div class="col-xs-2">
+        <label for="">Select Date</label>
+    </div>
+    <div class="col-xs-4">
+        <div class="input-group date datepicker " data-provide="datepicker">
+            <input type="text" class="textdate form-control" id="date">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4" ng-show="invalidDate==true">
+        Please Enter Valid Date
+    </div>
+</div>
+
+<form class="form-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <lable ng-show="content">
+                Select all
+                <input type="checkbox" id="selectall">
+            </lable>
+            <lable ng-hide="content">
+                Availabile slots
+            </lable>
+        </div>
+        <div class="panel-body">
+            <div class="col-xs-1 form-group " ng-repeat="c in content">
+                <div>
+                    <lable><input type="checkbox" data-checkbox="" data-id="{{c.id}}">
+                        <br> {{c.from}} {{c.to}}</lable>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="form-group">
+    <label>Location</label>
+    <input type="text" name="location" class="form-control" ng-model="location" placeholder="Location" required>
+</div>
+<div class="form-group">
+    <button ng-click="sendData()" ng-disabled="slotdatecheck||txt.location.$invalid" class="btn btn-info">Add</button>
+    <button ng-click="back()" class="btn btn-warning">Back</button>
+</div>

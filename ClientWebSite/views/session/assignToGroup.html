@@ -1,0 +1,18 @@
+<div class="well">
+    <h3><b>Date:</b> {{}}<b>Time:</b>{{}}</h3>
+</div>
+
+<table ng-show="show" class="table table-hover table-bordered table-responsive">
+    <thead>
+        <th>Child Name</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="d in show track by $index">
+            <td>{{d.value}}</td>
+            <td>
+                <input type="checkbox" data-id="{{d.id}}" data-checkbox="">
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-primary" ng-show="show" ng-disabled="selectioncheck" ng-click="createGroup()">Add to Session</button>

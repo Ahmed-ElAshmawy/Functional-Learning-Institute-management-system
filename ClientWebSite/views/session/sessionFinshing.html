@@ -1,0 +1,27 @@
+<div>
+    <h1>Monthly session status</h1>
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>Therapist Name</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Session Type</th>
+                <th>Option</th>
+            </tr>
+            <tr ng-repeat="d in sessionFinshing">
+                <td>{{d.therapistName}}</td>
+                <td>{{d.date|date:'dd-MM-yyyy'}}</td>
+                <td>Pending</td>
+                <td>
+                    <p ng-show="d.type==0">Individual</p>
+                    <p ng-show="d.type==1">Group</p>
+                </td>
+                <td>
+                    <button ng-click="changeToFinish(d.id)" class="btn btn-success">Mark As Finished</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <button ng-click="back()" class="btn btn-primary"> Back</button>
+</div>

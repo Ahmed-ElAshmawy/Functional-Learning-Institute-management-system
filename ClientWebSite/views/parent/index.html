@@ -1,0 +1,61 @@
+<div ng-show="isLoading" ng-include="'./views/loading.html'"></div>
+<div ng-hide="isLoading">
+    <h3 class="well">
+        Manage Parents
+    </h3>
+    <table class="table table-sm table-hover table-striped table-responsive">
+
+        <thead>
+            <tr>
+                <th>Father Name</th>
+                <th>Mother Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="d in data">
+                <td>{{d.fatherName}}</td>
+                <td>{{d.motherName}}</td>
+                <td>{{d.email}}</td>
+                <td>{{d.address}}</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Setting
+                            <span class="fa fa-gear"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a ng-click="contacts(d.id)" href="">Contacts <span class="fa fa-phone"></span></a></li>
+                            <li><a ng-click="child(d.id)" href=""> Children <span class="fa fa-child"></span></a></li>
+                            <li><a ng-click="emails(d.id)" href=""> Email <span class="fa fa-envelope"></span></a></li>
+                            <li><a ng-click="update(d)" href=""> Update <span class="fa fa-edit"></span></a></li>
+                            <li><a ng-click="delete(d.id)" href=""> Delete <span class="fa fa-trash"></span></a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="#/createparent"><i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+</div>
+<div class="modal fade" id="pModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4><i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                </h4>
+            </div>
+            <div class="modal-body">
+                <h3>Are you sure you want to delete this parent?</h3>
+            </div>
+            <div class="modal-footer">
+                <a href="" ng-click="confirmDelete()" class="btn btn-danger">Confirm Delete</a>
+                <a href="" data-dismiss="modal" class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

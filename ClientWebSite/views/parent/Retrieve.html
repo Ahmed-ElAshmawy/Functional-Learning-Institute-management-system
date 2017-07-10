@@ -1,0 +1,32 @@
+﻿<h1>hello from retrieve the data</h1>
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <tr>
+            <td>fatherName</td>
+            <td>motherName</td>
+            <td>email</td>
+            <td>birthDate</td>
+            <td>postalCode</td>
+            <td>streetNo</td>
+            <td>streetName</td>
+            <td>address</td>
+            <td>province</td>
+            <td>city</td>
+            <td>Operation</td>
+        </tr>
+        <tr ng-repeat="d in Ret">
+            <td>{{d.fatherName}}</td>
+            <td>{{d.motherName}}</td>
+            <td>{{d.email}}</td>
+            <td>{{d.birthDate}}</td>
+            <td>{{d.postalCode}}</td>
+            <td>{{d.streetNo}}</td>
+            <td>{{d.streetName}}</td>
+            <td>{{d.province}}</td>
+            <td>{{d.address}}</td>
+            <td>{{d.city}}</td>
+            <td><button ng-click="GetParent(d.id)" class="btn btn-warning">retrieve Parent</button></td>
+        </tr> 
+
+    </table>
+</div>

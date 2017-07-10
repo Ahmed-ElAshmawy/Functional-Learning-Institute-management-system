@@ -1,0 +1,90 @@
+<div class="row">
+    <h3 class="well"><b>Child Name:</b> {{child_name}}</h3>
+    <div class="col-xs-6">
+        <div class="col-xs-8">
+            <div class="input-group date datepicker " data-provide="datepicker">
+                <input type="text" class="textdate form-control" id="date" ng-model="date">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="showdate" class="col-xs-6">Please Enter Valid Date</div>
+</div>
+<div ng-show="table" class="row">
+    Therapist Availability List
+</div>
+<div ng-show="table" class="table-responsive">
+    <table class="table table-hover table-striped">
+        <tr>
+            <td class="bg-primary text-center" colspan="49">Therapist</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td ng-repeat="c in content track by $index">
+                {{c.from|date:'hh:mm'}} | {{c.to|date:'hh:mm'}}
+            </td>
+        </tr>
+        <tr ng-repeat="item in slot">
+            <td ng-repeat="i in item track by $index">
+
+                <div ng-class="{'yellow': i==true}">{{i}}</div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div ng-show="table" class="row">
+    Child Availability
+</div>
+<div ng-show="table" class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <td class="bg-primary text-center" colspan="49">Child</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td ng-repeat="c in content track by $index">
+                    {{c.from|date:'hh:mm'}} | {{c.to|date:'hh:mm'}}
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> name</td>
+                <td ng-repeat="slot in childSlots track by $index">
+                    <div ng-class="{'yellow': slot==true}">
+                        <input type="checkbox" data-id="{{$index}}" ng-show="slot" data-checkbox=""> {{slot}}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="showchecked" style="display: none;">
+    <select name="thnames" id="thnames">
+<option ng-value="n.id" ng-repeat="n in obj" >{{n.value}}</option>
+</select>
+    <button class="btn btn-primary" ng-disabled="showslots || thnumbers" ng-click="create()">Create Session</button>
+</div>
+
+<div class="form-group row">
+    <div class="col-xs-2">
+
+        <label>Service Type</label>
+    </div>
+    <div class="col-xs-4">
+        <select id="serviceTypeId" name="serviceTypeId" class="form-control" required>
+          <option value="AAAABBBB-1111-1111-0000-11110000">BI</option>
+          <option value="AAAABBBB-1111-1111-0000-11110001">BC</option>
+          <option value="AAAABBBB-1111-1111-0000-11110002">BPI</option>
+          <option value="AAAABBBB-1111-1111-0000-11110003">OT</option>
+          <option value="AAAABBBB-1111-1111-0000-11110004">Group</option>
+      </select>
+    </div>
+</div>
+
+
+<div class="well" ng-show="showslots">Choose appropraite Slots</div>
+<div class="well" ng-show="thnumbers">No Therapists Available</div>

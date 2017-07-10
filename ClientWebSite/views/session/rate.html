@@ -1,0 +1,67 @@
+<div ng-show="isLoading" ng-include="'./views/loading.html'"></div>
+<div ng-hide="isLoading">
+    <h1>Therapist Rate Page</h1>
+    <h2>{{therapistName}}</h2>
+    <div class="row">
+        <table class="table-striped table-responsive col-xs-9">
+            <tr>
+                <th>Date</th>
+                <th>General Rate Value</th>
+                <th>BC Rate Value</th>
+                <th>Delete</th>
+            </tr>
+            <tr ng-repeat="r in rateList">
+                <td>{{r.date |date:'MMM d ,yyyy'}}</td>
+                <td>{{r.otherValue}}</td>
+                <td>{{r.bcValue}}</td>
+                <td><i class="fa fa-trash" aria-hidden="true" ng-click="deleteModal(r.id,r.rateValue)"></i></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="row">
+        <a href="" ng-click="addRate()"><i class="fa fa-plus" aria-hidden="true"></i></a>
+    </div>
+
+    <div id="createRate" class="panel-success row col-xs-5 " name="createRate">
+        <button type="button" class="close" ng-click="close()">&times;</button>
+        <br>
+        <form name="rateForm" novalidate>
+            <div class="form-group" ng-class="{'has-error':rateForm.OtherValue.$invalid && rateForm.OtherValue.$dirty}">
+                <label for="date">General Rate Value</label>
+                <br>
+                <input type="text" placeholder="Enter General  Rate Value" ng-model="otherValue" class="form-control col-xs-4" name="OtherValue" required>
+                <span ng-show="rateForm.OtherValue.$error.required">Rate Value is required.</span>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error':rateForm.BcValue.$invalid && rateForm.BcValue.$dirty}">
+                <label for="date">General Rate Value</label>
+                <br>
+                <input type="text" placeholder="Enter BC  Rate Value" ng-model="bcValue" class="form-control col-xs-4" name="BcValue" required>
+                <span ng-show="rateForm.BcValue.$error.required">Rate Value is required.</span>
+            </div>
+            <button class="btn btn-primary col-xs-2" ng-click="createRate1()" ng-disabled="rateForm.$invalid">Add rate</button>
+        </form>
+    </div>
+
+</div>
+<a href="" ng-click="backToTherapist()" class="btn btn-default">Back</a>
+<div class="modal fade" id="therapistModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span>Delete Therapist</h4>
+            </div>
+            <div class="modal-body">
+                <h3>Are you sure you want to delete Rate {{rate}} for {{therapistName}} ?</h3>
+            </div>
+            <div class="modal-footer">
+                <a href="" ng-click="deleteRate()" class="btn btn-danger">Confirm Delete</a>
+                <a href="" data-dismiss="modal" class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

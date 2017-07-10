@@ -1,0 +1,16 @@
+<legend> Create Email <i class="fa fa-address-card-o" aria-hidden="true"></i> </legend>
+<form name="createForm">
+    <div class="form-group">
+        <input type="text" placeholder="Enter Email" name="parentemail" id="parentemail" ng-model="email" class="form-control" required>
+        <span class="help-block has-error">
+            <span ng-model="error" ng-show="createForm.parentemail.$error.required">Email is required.</span>
+        </span>
+    </div>
+    <button ng-disabled="createForm.parentemail.$invalid" class="btn btn-default" ng-click="add()">
+            <i class="fa fa-save" aria-hidden="true"></i> Create
+        </button>
+    <button ng-disabled="createForm.parentemail.$invalid" ng-click="reset()" class="btn btn-danger">
+        <i class="fa fa-eraser" aria-hidden="true"></i> Reset</button>
+    <button ng-click="back()" class="btn btn-success">  
+        <i class="fa fa-undo" aria-hidden="true"></i> Back</button>
+</form>

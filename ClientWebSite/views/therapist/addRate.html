@@ -1,0 +1,25 @@
+<div ng-show="isLoading" ng-include="'./views/loading.html'"></div>
+<div ng-hide="isLoading">
+    <div id="createRate" class="panel-success row" name="createRate">
+        <h3 class="well">Add Therapist Rate</h3>
+        <h3>Name:{{therapistName}}</h3>
+        <br>
+        <form name="rateForm" class="col-xs-5" novalidate>
+            <div class="form-group " ng-class="{'has-error':rateForm.OtherValue.$invalid && rateForm.OtherValue.$dirty}">
+                <label for="date">General Rate Value:</label>
+                <br>
+                <input type="text" placeholder="Enter General  Rate Value" ng-model="otherValue" class="form-control col-xs-4" name="OtherValue" required>
+                <span class="help-block has-error"><span ng-show="rateForm.OtherValue.$error.required">Rate Value is required.</span></span>
+            </div>
+
+            <div class="form-group " ng-class="{'has-error':rateForm.BcValue.$invalid && rateForm.BcValue.$dirty}">
+                <label for="date">BC Value:</label>
+                <br>
+                <input type="text" placeholder="Enter BC  Rate Value" ng-model="bcValue" class="form-control col-xs-4" name="BcValue" required>
+                <span class="help-block has-error"><span ng-show="rateForm.BcValue.$error.required">BC Value is required.</span></span>
+            </div>
+            <button class="btn btn-default" ng-click="createRate1()" ng-disabled="rateForm.$invalid"><i class="fa fa-floppy-o" aria-hidden="true"></i> Add Rate</button>
+            <a href="#/rateTherapist/{{therapistId}}/{{therapistName}}" class="btn btn-success"><i class="fa fa-undo" aria-hidden="true"></i> Back</a>
+        </form>
+    </div>
+</div>

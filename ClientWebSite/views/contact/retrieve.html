@@ -1,0 +1,17 @@
+<div class="table-responsive">
+       <table class="table table-hover table-striped">
+        <tr>
+            <td>Number</td>
+            <td>Contact Name</td>
+            <td>Contact Type</td>
+        </tr>
+        <tr ng-repeat="c in retcontact">
+            <td>{{c.number}}</td>
+            <td>{{c.contactName}}</td>
+            <td>{{c.contactType}}</td>
+            <td>
+          <button ng-click="getContact(c.id)" class="btn btn-danger">Get Contact</button>
+            </td>
+        </tr>
+    </table>
+</div>

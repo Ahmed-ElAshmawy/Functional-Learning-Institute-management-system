@@ -1,0 +1,25 @@
+<div ng-show="childData">
+    <table class="table table-hover table-bordered table-responsive">
+        <thead>
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Birth Date</td>
+                <td>Options</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="d in childData">
+                <td>{{d.firstName}}</td>
+                <td>{{d.lastName}}</td>
+                <td>{{d.birthDate|date:'dd-MM-yyyy'}}</td>
+                <td>
+                    <button ng-click="availability(d.id)" class="btn btn-primary">Availability</button>
+                    <button ng-click="schedule(d.id)" class="btn btn-primary">Show Schedule</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>

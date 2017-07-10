@@ -1,0 +1,29 @@
+<div class="jumbotron">
+    <h1>
+        Hello from complaintdetail
+        <h1>
+</div>
+<div ng-show="complaint" class="table-responsive">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <td>Title</td>
+                <td>Description</td>
+                <td>Created Date</td>
+                <td>Answer</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{complaint.title}}</td>
+                <td>{{complaint.body}}</td>
+                <td>{{complaint.createdDate|date:'dd-MM-yyyy'}}</td>
+                <td>{{complaint.answer}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<a class="btn btn-primary" ng-click="back()">Back</a>

@@ -1,0 +1,210 @@
+﻿<h1>Create therapist Page</h1>
+<form name="createForm" id="createForm" novalidate>
+    <table class="table table-responsive col-lg-12">
+        <tr class="bg-primary">
+            <td colspan="3" class="text-center">Personal Information</td>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.FullLegalName.$invalid && createForm.FatherName.$dirty}">
+                <td>Full legal Name</td>
+                <td><input type="text" name="FullLegalName" ng-model="FullLegalName" placeholder="Enter First Name" required/></td>
+                <td><span class="help-block has-error"><span ng-show="createForm.FullLegalName.$error.required">Full Legal Name is required</span></span>
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.LastName.$invalid && createForm.FatherName.$dirty}">
+                <td>Last Name</td>
+                <td><input type="text" name="LastName" ng-model="LastName" placeholder="Enter Last Name" required/></td>
+                <td><span class="help-block has-error"><span ng-show="createForm.LastName.$error.required">Last Name Name is required</span></span>
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.BirthDate.$invalid && createForm.FatherName.$dirty}">
+                <td>Birth Date</td>
+                <td>
+                    <div class="input-group date datepicker" data-provide="datepicker">
+                        <input type="text" class="textdate form-control" ng-model="BirthDate" required name="BirthDate" placeholder="Enter Birth date">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                </td>
+                <td><span class="help-block has-error"><span ng-show="createForm.BirthDate.$error.required">BirthDate is required</span></span>
+                </td>
+                </div>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.SIN.$invalid && createForm.FatherName.$dirty}">
+                <td>SIN</td>
+                <td><input type="text" name="SIN" ng-model="SIN" placeholder="Enter SIN" ng-minlength="9" ng-maxlength="9" required /></td>
+                <td><span class="help-block has-error"><span ng-show="createForm.SIN.$error.minlength">SIN 9 characters</span>
+                    <span ng-show="createForm.SIN.$error.required">SIN 9 characters </span></span>
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.CRCExpiry.$invalid && createForm.FatherName.$dirty}">
+                <td>CRC Expiry Date</td>
+                <td>
+                    <div class="input-group date datepicker" data-provide="datepicker">
+                        <input type="text" class="textdate form-control" ng-model="CRCExpiry" required name="CRCExpiry" placeholder="Enter CRCExpiry">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                </td>
+                <td><span class="help-block has-error"><span ng-show="createForm.CRCExpiry.$error.required">CRC Expiry Date</span></span>
+                </td>
+                </div>
+        </tr>
+        <tr class="bg-primary">
+            <td colspan="3" class="text-center">Work Information</td>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.StaffName.$invalid && createForm.FatherName.$dirty}">
+                <td>Staff Name</td>
+                <td><input name="StaffName" ng-model="StaffName" placeholder="Enter Staff Name" required/></td>
+                <td><span class="help-block has-error"><span ng-show="createForm.StaffName.$error.required">Staff Name is reuiqred</span></span>
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.JopTitle.$invalid && createForm.FatherName.$dirty}">
+                <td>Job Title</td>
+                <td><input name="JopTitle" ng-model="JopTitle" required placeholder="Enter Job title" /></td>
+                <td><span class="help-block has-error"><span ng-show="createForm.JopTitle.$error.required">Job title is reuiqred</span></span>
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.StartDate.$invalid && createForm.FatherName.$dirty}">
+                <td>Start Date</td>
+                <td>
+                    <div class="input-group date datepicker" data-provide="datepicker">
+                        <input type="text" class="textdate form-control" ng-model="StartDate" required name="StartDate" placeholder="Enter StartDate">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                </td>
+                <td><span class="help-block has-error"><span ng-show="createForm.StartDate.$error.required">Start Date is reuiqred</span></span>
+                </td>
+                </div>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.InstitueNo.$invalid && createForm.FatherName.$dirty}">
+                <td>Institue Number</td>
+                <td><input name="InstitueNo" ng-model="InstitueNo" placeholder="Enter Institue Number" required/></td>
+                <td><span class="help-block has-error"><span ng-show="createForm.InstitueNo.$error.required">Institue Number is reuiqred</span></span>
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.TransitNo.$invalid && createForm.FatherName.$dirty}">
+                <td>Transit Number</td>
+                <td><input name="TransitNo" ng-model="TransitNo" placeholder="Enter Transit Number" required/></td>
+                <td><span class="help-block has-error"><span ng-show="createForm.TransitNo.$error.required">Transit Number is reuiqred</span></span>
+                </td>
+            </div>
+        </tr>
+
+        <tr class="bg-primary">
+            <td colspan="3" class="text-center">Contact Information</td>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.UserName.$invalid && createForm.FatherName.$dirty}">
+                <td>UserName</td>
+                <td><input name="UserName" ng-model="UserName" placeholder="UserName" required/></td>
+                <td>
+                    <span class="help-block has-error">
+                    <span ng-show="createForm.UserName.$error.required">UserName is required</span>
+                    </span>
+                </td>
+            </div>
+        </tr>
+
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.Email.$invalid && createForm.FatherName.$dirty}">
+                <td>Email</td>
+                <td><input name="Email" type="email" ng-model="Email" placeholder="Enter Email" required/></td>
+                <td>
+                    <span class="help-block has-error">
+                    <span ng-show="createForm.Email.$error.required">Email is required</span>
+                    <span ng-show="createForm.Email.$error.email">example@gmail.com</span>
+                    </span>
+                </td>
+            </div>
+        </tr>
+
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.Phone.$invalid && createForm.FatherName.$dirty}">
+                <td>Phone</td>
+                <td><input name="Phone" ng-model="Phone" placeholder="Enter Phone Number" required/></td>
+                <td><span class="help-block has-error"><span ng-show="createForm.Phone.$error.required">Phone is reuiqred</span></span>
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.PostalCode.$invalid && createForm.FatherName.$dirty}">
+                <td>Postal Code</td>
+                <td><input name="PostalCode" ng-model="PostalCode" placeholder="Enter PostalCode" required/></td>
+                <td><span class="help-block has-error"><span ng-show="createForm.PostalCode.$error.required">PostalCode is reuiqred</span></span>
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.EmergancyContact.$invalid && createForm.FatherName.$dirty}">
+                <td>Emergancy Contact</td>
+                <td><input name="EmergancyContact" ng-model="EmergancyContact" placeholder="Enter Emergancy Contact" required/></td>
+                <td><span class="help-block has-error"><span ng-show="createForm.EmergancyContact.$error.required">Emergancy Contact is reuiqred</span></span>
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.EmergancyPhone.$invalid && createForm.FatherName.$dirty}">
+                <td>Emergancy Phone</td>
+                <td><input name="EmergancyPhone" ng-model="EmergancyPhone" placeholder="Enter Emergancy Phone" required/></td>
+                <td><span class="help-block has-error"><span ng-show="createForm.EmergancyPhone.$error.required">Emergancy Phone is reuiqred</span></span>
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.Address.$invalid && createForm.FatherName.$dirty}">
+                <td>Address</td>
+                <td><input name="Address" ng-model="Address" placeholder="Enter Address" required/></td>
+                <td><span class="help-block has-error"><span ng-show="createForm.Address.$error.required">Addressis reuiqred</span></span>
+                </td>
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.AccountNo.$invalid && createForm.FatherName.$dirty}">
+                <td>Account Number</td>
+                <td><input name="AccountNo" ng-model="AccountNo" placeholder="Enter Accouunt Number" required/></td>
+                <td><span class="help-block has-error"><span ng-show="createForm.AccountNo.$error.required">Account Number is reuiqred</span></span>
+                </td>
+            </div>
+        </tr>
+        <tr class="bg-primary text-center">
+            <td colspan="3">Initial Rate</td>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.OtherValue.$invalid && createForm.OtherValue.$dirty}">
+                <td>General Rate Value</td>
+                <td>
+                    <input type="text" placeholder="Enter General  Rate Value" ng-model="otherValue" class="form-control" name="OtherValue" required></td>
+                <td><span ng-show="createForm.OtherValue.$error.required">Rate Value is required.</span> </td>
+
+            </div>
+        </tr>
+        <tr>
+            <div class="form-group" ng-class="{'has-error':createForm.BcValue.$invalid && createForm.BcValue.$dirty}">
+
+                <td>BC Rate Value</td>
+                <td><input type="text" placeholder="Enter BC  Rate Value" ng-model="bcValue" class="form-control" name="BcValue" required></td>
+                <td><span ng-show="createForm.BcValue.$error.required">Bc Rate Value is required.</span></td>
+            </div>
+        </tr>
+    </table>
+    <a href="" ng-click="submitTherapist()" class="btn btn-default" ng-disabled="createForm.$invalid">Save</a>
+    <a href="" ng-click="reset()" class="btn btn-default">Reset</a>
+    <a href="" ng-click="backTherapist()" class="btn btn-default">Back</a>
+</form>

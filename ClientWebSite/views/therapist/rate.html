@@ -1,0 +1,48 @@
+<div ng-show="isLoading" ng-include="'./views/loading.html'"></div>
+<div ng-hide="isLoading">
+    <h3 class="well">Therapist Rate</h3>
+    <h3>Name:{{therapistName}}</h3>
+    <table class="table-striped table-responsive col-xs-12">
+        <tr>
+            <th>Date</th>
+            <th>General Rate Value</th>
+            <th>BC Rate Value</th>
+            <th>Delete</th>
+        </tr>
+        <tr ng-repeat="r in rateList">
+            <td>{{r.date |date:'MMM d ,yyyy'}}</td>
+            <td>{{r.otherValue}}</td>
+            <td>{{r.bcValue}}</td>
+            <td>
+                <button type="button" ng-click="deleteModal(r.id,r.rateValue)" class="btn btn-danger">
+                        <i class="fa fa-trash" aria-hidden="true"> Delete</i>
+                        </button>
+            </td>
+        </tr>
+    </table>
+    <div class="row">
+        <a href="" class="btn btn-primary" ng-click="redirectToRate()">Add Rate<i class="fa fa-plus" aria-hidden="true"></i></a>
+        <a href="/#/therapist" class="btn btn-success"><i class="fa fa-undo" aria-hidden="true"></i> Back</a>
+    </div>
+</div>
+
+
+<div class="modal fade" id="therapistModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span>Delete Therapist</h4>
+            </div>
+            <div class="modal-body">
+                <h3>Are you sure you want to delete Rate {{rate}} for {{therapistName}} ?</h3>
+            </div>
+            <div class="modal-footer">
+                <a href="" ng-click="deleteRate()" class="btn btn-danger">Confirm Delete</a>
+                <a href="" data-dismiss="modal" class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

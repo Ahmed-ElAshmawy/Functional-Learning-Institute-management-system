@@ -1,0 +1,26 @@
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <tr>
+            <td>firstName</td>
+            <td>lastName</td>
+            <td>birthDate</td>
+            <td>clientSince</td>
+            <td>medicalProvider</td>
+            <td>medicalProviderPhone</td>
+            <td>outOfPocket</td>
+        </tr>
+        <tr ng-repeat="d in Retc">
+            <td>{{d.firstName}}</td>
+            <td>{{d.lastName}}</td>
+            <td>{{d.birthDate}}</td>
+            <td>{{d.clientSince}}</td>
+            <td>{{d.medicalProvider}}</td>
+            <td>{{d.medicalProviderPhone}}</td>
+            <td>{{d.outOfPocket}}</td>
+            <td>
+            <button ng-click="getChild(d.id)" class="btn btn-warning">Get Child</button>
+
+            </td>
+        </tr>
+    </table>
+</div>

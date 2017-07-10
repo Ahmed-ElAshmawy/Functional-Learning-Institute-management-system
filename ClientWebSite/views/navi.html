@@ -1,0 +1,59 @@
+<nav class="navbar navbar-default" ng-controller="index">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="#/">FLC</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li ng-class="{'active': pageName=='home'}"><a class="fa fa-home" href="#/home"> Home</a></li>
+                <li ng-show="roles.indexOf('Admin')!=-1" ng-class="{'active': pageName=='parent'}"><a href="#/parent">Parent</a></li>
+                <li ng-show="roles.indexOf('Admin')!=-1" ng-class="{'active': pageName=='scheduleAll'}"><a href="#/scheduleAll">Schedule</a></li>
+                <li ng-show="roles.indexOf('Admin')!=-1" ng-class="{'active': pageName=='therapist'}"><a href="#/therapist">Therapist</a></li>
+                <li ng-show="roles.indexOf('Admin')!=-1" ng-class="{'active': pageName=='session'}"><a href="#/session">Sessions</a></li>
+                <li ng-show="roles.indexOf('Therapist')!=-1 ||roles.indexOf('Parent')!=-1"><a class="fa fa-key" href="#/complaint"> Complaint</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-hide="isLoggedIn" ng-class="{'active': pageName=='login'}"><a href="#/login">Login</a></li>
+                <li ng-show="isLoggedIn">
+                    <a href="" ng-click="logOut()">Logout</a>
+                </li>
+
+                <li class="dropdown" ng-show="show">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell-o" aria-hidden="true"></i> <span id="number" class="badge">{{notificationCount}}</span><span class="caret"></span></a>
+                    <ul id="notify" class="dropdown-menu">
+                        <li ng-repeat="m in messages">
+                            <a ng-click="details(m)">{{m.MessageBody}} &nbsp;&nbsp;&nbsp;&nbsp; {{m.Date|date:"MM/dd/yyyy 'at' h:mma"}}</a>
+                        </li>
+                        <li role='separator' class='divider'></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown" ng-show="roles.indexOf('Other')==-1">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa-1x fa fa-gears"></span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a ng-show="roles.indexOf('Other')==-1" class="fa fa-envelope" href="#/profile/changeemail"> Edit Email</a></li>
+                        <li><a ng-show="roles.indexOf('Other')==-1" class="fa fa-key" href="#/profile/changepassword"> Edit Password</a></li>
+                        <li><a ng-hide="roles.indexOf('Therapist')==-1" class="fa fa-key" href="#/therapistAvailability"> Availability</a></li>
+                        <li><a ng-hide="roles.indexOf('Therapist')==-1" class="fa fa-key" href="#/therapistschedule"> Schedule</a></li>
+                        <li><a ng-hide="roles.indexOf('Admin')==-1" class="fa fa-list-alt" href="#/childrenSession"> ChildrenSession Table</a></li>
+                        <li><a ng-hide="roles.indexOf('Parent')==-1" class="fa fa-user-alt" href="#/parentprofile"> Children</a></li>
+                        <li><a ng-hide="roles.indexOf('Admin')==-1" class="fa fa-file-text-o" href="#/invoiceReport"> Child Report</a></li>
+                        <li><a ng-hide="roles.indexOf('Admin')==-1" class="fa fa-file-text-o" href="#/therapistReportView"> Therapist Report Table</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>

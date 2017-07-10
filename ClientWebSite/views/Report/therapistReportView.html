@@ -1,0 +1,32 @@
+<h1 class="well">Therapists Reports <i class="fa fa-file-text" aria-hidden="true"></i> </h1>
+<div ng-show="isLoading" ng-include="'./views/loading.html'"></div>
+<div ng-hide="isLoading">
+    <div class="row">
+        <div class="col-xs-2">
+            <label>Date of Reports</label>
+        </div>
+        <div class="input-group date col-xs-4" id="datePick">
+            <input type="text" class="form-control" id="datePick" ng-model="datenow" ng-change="showCheckbox()" placeholder="Select Date">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row" ng-show="therapistData">
+        <table class="table-responsive table-hover table-striped col-xs-12 ">
+            <tr>
+                <th class="col-xs-3">Name</th>
+                <th class="col-xs-3">Staff name</th>
+                <th class="col-xs-6"> Generate Reports</th>
+            </tr>
+            <tr ng-repeat="x in therapistData">
+                <td>{{x.therapistName}}</td>
+                <td>{{x.staffName}}</td>
+                <td><button href="" ng-click="biMonthReport(x.therapistId)" class="btn btn-primary">Bi Month Report</button>&nbsp; &nbsp;
+                    <a href="" ng-click="endMonthReport(x.therapistId)" class="btn btn-primary">End Month Report</a>&nbsp; &nbsp;
+                    <a href="" ng-click="taskReport(x.therapistId)" class="btn btn-primary">Final Report</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

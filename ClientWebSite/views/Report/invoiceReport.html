@@ -1,0 +1,48 @@
+<h1 class="well"> Clients Reports <i class="fa fa-file-text" aria-hidden="true"></i></h1>
+<div ng-show="isLoading" ng-include="'./views/loading.html'"></div>
+<div ng-hide="isLoading">
+    <div class="row">
+        <div class="col-xs-2">
+            <label>Date of Reports</label>
+        </div>
+        <div class="input-group date col-xs-4" id="datePick">
+            <input type="text" class="form-control" id="datePick" ng-model="datenow" ng-change="showCheckbox()" placeholder="Select Date"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+        </div>
+    </div>
+    <br>
+    <div class="row" ng-show="showSelect">
+        <div class="col-xs-2">
+            <label>Fund Type:</label>
+        </div>
+        <div class="row  col-xs-4 dropdown">
+            <select id="mySelect" ng-model="selectValue" class="dropdown-toggle form-control ">
+        <option disabled selected value> --Select Fund Type--</option>
+            <option value="AFU">AFU</li>
+            <option value="HomeFunding" >HomeFunding</option>
+            <option value="OutOfPocket"  >OutOfPocket</option>
+            <option value="FundGroupUnder6"  >FundGroupUnder6</option>
+            <option value="FundGroupFrom6To18"  >FundGroupFrom6To18</option>
+            <option value="FundGroupOver18"  >FundGroupOver18</option>
+        </select>
+        </div>
+    </div>
+
+    <br>
+    <div class="row ">
+        <table ng-show="content" class="table table-responsive table-hover table-striped col-xs-9">
+            <tr>
+                <th class="col-xs-3">Child Name</th>
+                <th class="col-xs-3">Parent Name</th>
+                <th class="col-xs-3">Generate Invoice</th>
+            </tr>
+            <tr ng-repeat="c in content">
+                <td class="col-xs-3">{{c.childName}}</td>
+                <td class="col-xs-3">{{c.parentName}}</td>
+                <td class="col-xs-3">
+                    <button ng-click="generateInvoice(c.childId)" class="btn btn-primary">Invoice</button>
+                    <button ng-click="generateParentReport(c.childId)" class="btn btn-primary">Parent Report</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

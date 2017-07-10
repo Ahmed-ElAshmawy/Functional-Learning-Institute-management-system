@@ -1,0 +1,20 @@
+﻿<h3 class="well">
+    Therapist task
+</h3>
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <tr>
+            <th>Description</th>
+            <th>Date Time</th>
+            <th>Duration</th>
+        </tr>
+        <tr ng-repeat="th in theraTask">
+            <td>{{th.description}}</td>
+            <td>{{th.dateTime}}</td>
+            <td>{{th.duration}}</td>      
+        </tr>
+    </table>
+</div>
+
+<button ng-click="createTask()" class="btn btn-primary">Create Task</button>
+<a href="/#/therapist" class="btn btn-success"><i class="fa fa-undo" aria-hidden="true"></i> Back</a>

@@ -1,0 +1,32 @@
+﻿<h3 class="well">
+    Create therapist task</h3>
+<form name="createForm" id="createForm" class="col-xs-5" novalidate>
+    <div class="form-group" ng-class="{'has-error':createForm.description.$invalid && createForm.description.$dirty}">
+        <label>description</label>
+        <input type="text" class="form-control" id="description" name="description" ng-model="FName" placeholder="description" required>
+        <span class="help-block has-error">
+            <span ng-show="createForm.description.$error.required">description is required.</span>
+        </span>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error':createForm.datetime.$invalid && createForm.datetime.$dirty}">
+        <label>datetime</label>
+        <input type="date" class="form-control" id="datetime" name="datetime" placeholder="datetime" ng-model="Em" required>
+        <span class="help-block has-error">
+            <span ng-show="createForm.datetime.$error.required">datetime is required.</span>
+        </span>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error':createForm.duration.$invalid && createForm.duration.$dirty}">
+        <label>duration</label>
+        <input type="text" class="form-control" id="duration" name="duration" placeholder="duration" ng-model="BD" required>
+        <span class="help-block has-error">
+            <span ng-show="createForm.duration.$error.required">duration is required.</span>
+        </span>
+    </div>
+
+
+
+    <button type="button" ng-click="addtask()" ng-disabled="createForm.$invalid" class="btn btn-default"><i class="fa fa-floppy-o" aria-hidden="true"></i> Add Task</button>
+    <button ng-click="back()" class="btn btn-success"><i class="fa fa-undo" aria-hidden="true"></i>Back</button>
+</form>

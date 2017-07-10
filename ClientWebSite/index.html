@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="module">
+
+<head>
+    <title>Functional Learning</title>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <link href="css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div ng-include="'./views/navi.html'"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="main-contiant">
+            <div ng-view="" id='main'>
+            </div>
+        </div>
+
+        <div class="row">
+            <div ng-include="'./views/footer.html'"></div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="errorModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4><i class="fa fa-exclamation-triangle" aria-hidden="true"> Error</i> </h4>
+                </div>
+                <div class="modal-body">
+                    <h4>An error occurred please contact your system administrator</h4>
+                </div>
+                <div class="modal-footer">
+                    <a href="" data-dismiss="modal" class="btn btn-primary">Ok</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--jquery-->
+    <script src="scripts/jquery-3.1.1.js"></script>
+    <script src="scripts/jquery-ui.js"></script>
+
+
+    <!--angular-->
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="scripts/angular-resource.js"></script>
+    <script src="scripts/angular-cookies.js"></script>
+    <!--bootstrap-->
+    <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/bootstrap-datepicker.js"></script>
+
+
+    <!--Notifications-->
+    <script src="scripts/jquery.signalR-2.2.2.js"></script>
+    <script src="http://localhost:9408/signalr/hubs"></script>
+    <script src="scripts/signalr-hub.js"></script>
+    <script src="scripts/html2canvas.js"></script>
+    <script src="scripts/pdfmake.min.js"></script>
+
+
+    <!-- Main -->
+    <script src="app.js"></script>
+    <!-- Services -->
+    <script src="./Services/getAjax.js"></script>
+    <script src="./Services/auth.js"></script>
+    <script src="./Services/postAjax.js"></script>
+    <script src="./Services/common.js"></script>
+    <!-- Directives -->
+
+    <!-- Controllers -->
+    <script src="./Controllers/home.js"></script>
+    <script src="./Controllers/index.js"></script>
+    <script src="./Controllers/login.js"></script>
+    <script src="./Controllers/Unauthorized.js"></script>
+    <!--Parent controllers-->
+    <script src="./Controllers/parent/index.js"></script>
+    <script src="./Controllers/parent/create.js"></script>
+    <script src="./Controllers/parent/update.js"></script>
+    <script src="./Controllers/parent/parentProfile.js"></script>
+    <script src="./Controllers/parent/Retrieve.js"></script>
+    <!--Child controllers-->
+    <script src="./Controllers/child/index.js"></script>
+    <script src="./Controllers/child/create.js"></script>
+    <script src="./Controllers/child/update.js"></script>
+    <script src="./Controllers/child/createAvailability.js"></script>
+    <script src="./Controllers/child/schedule.js"></script>
+    <script src="./Controllers/child/Retrieve.js"></script>
+
+    <!--Availability controllers-->
+    <script src="./Controllers/child/availability.js"></script>
+    <script src="./Controllers/therapist/availability.js"></script>
+    <!--therapist controllers-->
+    <script src="./Controllers/therapist/index.js"></script>
+    <script src="./Controllers/therapist/details.js"></script>
+    <script src="./Controllers/Therapist/deleteTherapist.js"></script>
+    <script src="./Controllers/therapist/create.js"></script>
+    <script src="./Controllers/therapist/rate.js"></script>
+    <script src="./Controllers/therapist/task.js"></script>
+    <script src="./Controllers/therapist/createTask.js"></script>
+    <script src="./Controllers/therapist/updateTask.js"></script>
+    <script src="./Controllers/test.js"></script>
+    <script src="./Controllers/therapist/addRate.js"></script>
+    <script src="./Controllers/therapist/createAvailability.js"></script>
+    <script src="./Controllers/therapist/schedule.js"></script>
+    <script src="./Controllers/therapist/Retrieve.js"></script>
+    <script src="./Controllers/therapist/update.js"></script>
+
+    <!--session controllers-->
+    <script src="./Controllers/session/index.js"></script>
+    <script src="./Controllers/session/create.js"></script>
+    <script src="./Controllers/session/detail.js"></script>
+    <script src="./Controllers/session/update.js"></script>
+    <script src="./Controllers/session/assignToGroup.js"></script>
+    <script src="./Controllers/session/sessionFinshing.js"></script>
+
+
+    <!-- contacts-->
+    <script src="./Controllers/contact/create.js"></script>
+    <script src="./Controllers/contact/update.js"></script>
+    <script src="./Controllers/contact/index.js"></script>
+    <script src="./Controllers/contact/Retrieve.js"></script>
+    <!-- emails-->
+    <script src="./Controllers/emails/create.js"></script>
+    <script src="./Controllers/emails/update.js"></script>
+    <script src="./Controllers/emails/index.js"></script>
+
+    <script src="./Controllers/resetpassword.js"></script>
+    <script src="./Controllers/forgetPassword.js"></script>
+    <!--profile-->
+    <script src="./Controllers/profile/index.js"></script>
+    <script src="./Controllers/profile/changepassword.js"></script>
+    <script src="./Controllers/profile/changeemail.js"></script>
+    <script src="./Controllers/schedule/index.js"></script>
+    <!--complaint-->
+    <script src="./Controllers/complaint/index.js"></script>
+    <script src="./Controllers/complaint/create.js"></script>
+    <script src="./Controllers/complaint/complaint.js"></script>
+
+    <script src="./Controllers/notifications/notifications.js"></script>
+
+    <!--reports-->
+    <script src="./Controllers/Report/reportView.js"></script>
+    <script src="./Controllers/Report/reportView.js"></script>
+    <script src="./controllers/Report/therapistReport.js"></script>
+    <script src="./controllers/Report/parentReport.js"></script>
+    <script src="./controllers/Report/invoiceReport.js"></script>
+    <script src="./controllers/Report/invoicedownload.js"></script>
+    <script src="./controllers/Report/homeFundInvoice.js"></script>
+    <script src="./controllers/Report/generalInvoice.js"></script>
+    <script src="./controllers/Report/therapistReportView.js"></script>
+    <script src="./controllers/Report/biMonthReport.js"></script>
+    <script src="./controllers/Report/endMonthReport.js"></script>
+    <script src="./controllers/Report/finalMonthReport.js"></script>
+
+    <script src="./Controllers/complaint/answer.js"></script>
+    <script src="./Controllers/complaint/details.js"></script>
+    <script src="./Controllers/schedule/childSession.js"></script>
+
+
+    <script>
+        //datepicker configration
+        $.fn.datepicker.defaults.autoclose = true;
+        $.fn.datepicker.defaults.todayHighlight = true;
+        // $.fn.datepicker.defaults.format = 'dd/mm/yyyy';
+    </script>
+</body>
+
+</html>

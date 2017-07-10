@@ -1,0 +1,17 @@
+
+
+<div class="row">
+        <table class="table-striped col-xs-8">
+            <tr>
+                <th class="col-xs-1">Number</th>
+
+                <th class="col-xs-6">Therapist Name</th>
+            </tr>
+            <tr ng-repeat="th in Retthe">
+                <td>{{$index+1}}</td>
+                <td>{{th.staffName}} &nbsp; {{th.lastName}}</td>   
+                <td><button ng-click="getTherapist(th.id)" class="btn btn-warning">Get Therapist</button></td>
+                
+                </tr>
+        </table>
+    </div>

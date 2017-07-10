@@ -1,0 +1,110 @@
+﻿<h3 class="well">Update Parent</h3>
+
+
+<form name="updateForm" id="updateForm" novalidate ng-show="show">
+    <div class="form-group row" ng-class="{'has-error':createForm.FatherName.$invalid && createForm.FatherName.$dirty}">
+        <div class="col-xs-2">
+            <label>Father Name</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="FatherName" name="FatherName" ng-model="obj.fatherName" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.FatherName.$error.required">father name is required</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group row" ng-class="{'has-error':createForm.MotherName.$invalid && createForm.MotherName.$dirty}">
+        <div class="col-xs-2">
+            <label>Mother Name</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="MotherName" name="MotherName" ng-model="obj.motherName" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.MotherName.$error.required">mother name is required</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group row" ng-class="{'has-error':createForm.Email.$invalid && createForm.Email.$dirty}">
+        <div class="col-xs-2">
+            <label>Email</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="email" class="form-control" id="Email" name="Email" ng-model="obj.email" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.Email.$error.required">email is required</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-class="{'has-error':createForm.BirthDate.$invalid && createForm.BirthDate.$dirty}">
+        <div class="col-xs-2">
+            <label>Birth Date</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="date" class="form-control" id="BirthDate" name="BirthDate" ng-model="obj.birthDate" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.BirthDate.$error.required">birthdate is required</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-class="{'has-error':createForm.PostalCode.$invalid && createForm.PostalCode.$dirty}">
+        <div class="col-xs-2">
+            <label>Postal Code</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="PostalCode" name="PostalCode" ng-model="obj.postalCode" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.PostalCode.$error.required">postal code is required</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group row" ng-class="{'has-error':createForm.StreetNo.$invalid && createForm.StreetNo.$dirty}">
+        <div class="col-xs-2">
+            <label>Street No</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="number" class="form-control" id="StreetNo" name="StreetNo" ng-model="obj.streetNo" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.StreetNo.$error.required">street number is required</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group row" ng-class="{'has-error':createForm.StreetName.$invalid && createForm.StreetName.$dirty}">
+        <div class="col-xs-2">
+            <label>Street Name</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="StreetName" name="StreetName" ng-model="obj.streetName" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.StreetName.$error.required">street name is required</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group row" ng-class="{'has-error':createForm.Province.$invalid && createForm.Province.$dirty}">
+        <div class="col-xs-2">
+            <label>Province</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="Province" name="Province" ng-model="obj.province" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.Province.$error.required">province is required</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group row" ng-class="{'has-error':createForm.City.$invalid && createForm.City.$dirty}">
+        <div class="col-xs-2">
+            <label>City</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="City" name="City" ng-model="obj.city" required>
+            <span class="help-block has-error">
+            <span ng-show="createForm.City.$error.required">city is required</span>
+            </span>
+        </div>
+    </div>
+    <button type="button" ng-click="update()" ng-disabled="updateForm.$invalid" class="btn btn-default"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
+    <button type="button" ng-click="cancel(updateForm)" class="btn btn-warning"><i class="fa fa-eraser" aria-hidden="true"></i> Reset</button>
+    <button ng-click="back()" class="btn btn-success"><i class="fa fa-undo" aria-hidden="true"></i> Back</button>
+</form>

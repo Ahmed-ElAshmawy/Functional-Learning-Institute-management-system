@@ -1,0 +1,28 @@
+<h4 class="well">
+    show shedule
+</h4>
+<lable>SelectDate</lable>
+<div class="input-group date col-xs-4" id="dateDiv">
+    <input type="text" class="form-control" id="date"><span class="input-group-addon">
+        <i class="glyphicon glyphicon-th"></i></span>
+</div>
+<div ng-show="show">
+    <table class="table table-hover table-bordered table-responsive ">
+        <thead class="ui-widget-header">
+            <tr>
+                <th>Date</th>
+                <th ng-repeat="obj in objects[0] track by $index">Session{{$index+1}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="obj in objects track by $index">
+                <td>
+                    {{obj[0].date|date:'dd-MM-yyyy'}}
+                </td>
+                <td ng-repeat="d in obj track by $index">{{d.slots[0].from|date:'HH-mm'}} &nbsp;&nbsp; {{d.slots[d.slots.length-1].to|date:'HH-mm'}}
+                    <br><a ng-show="d.id" href="" ng-click="showdetails(d.id)">Details</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

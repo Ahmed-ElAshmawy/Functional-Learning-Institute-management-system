@@ -1,0 +1,34 @@
+<div class="jumbotron">
+    <h1>
+        Hello from complaints
+        <h1>
+</div>
+<div class="table-responsive">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <td>Title</td>
+                <td>Description</td>
+                <td>Created Date</td>
+                <td>Status</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="c in complaints">
+                <td>{{c.title}}</td>
+                <td>{{c.body}}</td>
+                <td>{{c.createdDate|date:'dd-MM-yyyy'}}</td>
+                <td>
+                    <p ng-show="c.status==0">Pending</p>
+                    <p ng-show="c.status==1">Resolved <br>
+                        <a ng-show="c.status==1" class="btn btn-primary" ng-click="details(c.id)">Details</a>
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<a class="btn btn-primary" ng-click="create()">
+    <i class="fa fa-plus" aria-hidden="true"></i> Create</a>

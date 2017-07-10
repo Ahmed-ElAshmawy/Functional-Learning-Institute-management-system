@@ -1,0 +1,61 @@
+<h1 class="well">Parent Report<i class="fa fa-file-text" aria-hidden="true"></i></h1>
+<div id="parentReport">
+    <table class="table table-responsive" id="therapistReport">
+        <tr>
+            <td class="col-xs-3"></td>
+            <td class="col-xs-3"></td>
+            <td class="col-xs-3"> </td>
+            <td class="col-xs-3"></td>
+        </tr>
+        <tr>
+            <td colspan="4">Payroll Report</td>
+        </tr>
+        <tr>
+            <td>Child Name:</td>
+            <td>{{namechild}}</td>
+        </tr>
+        <tr>
+            <td>Month Name</td>
+            <td>{{month|date:MMMM}}</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <table class="table table-responsive table-bordered col-xs-12">
+                    <tr>
+                        <th>Service type</th>
+                        <th>Date</th>
+                        <th>Start time</th>
+                        <th>Duration</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr ng-repeat="c in content">
+                        <td>{{c.name}}</td>
+                        <td>{{c.date}}</td>
+                        <td>{{c.start}}</td>
+                        <td>{{c.hours}}</td>
+                        <td>{{c.amount}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"></td>
+                        <td>total Amount</td>
+                        <td>{{total}} &dollar;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><strong> Provider Signature</strong></td>
+            <td ng-show="showSignature"><input type="text" placeholder="Signature" class="form-control" ng-model="signaturePerson" /><button class="btn btn-default" ng-click="saveSignature()">Save change</button></td>
+            <td ng-hide="showSignature">{{signaturePerson}}</td>
+            <td><strong>Parent Signature</strong></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+<button class="btn btn-info" ng-click="download()">Download <i class="fa fa-download" aria-hidden="true"></i></button>
+<button class="btn btn-info" ng-click="sendFile()">Send Mail<i class="fa fa-envelope" aria-hidden="true"></i></button>
+<button class="btn btn-info" ng-click="addSignature()">Edit Signature</button>
+<a href="/#/invoiceReport" class="btn btn-primary">Back</a>

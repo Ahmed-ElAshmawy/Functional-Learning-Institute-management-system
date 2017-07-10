@@ -1,0 +1,156 @@
+<h1 class="well">AFU Invoice<i class="fa fa-file-text" aria-hidden="true"></i></h1>
+<div ng-show="isLoading" ng-include="'./views/loading.html'"></div>
+<div ng-hide="isLoading">
+    <table class="table-responsive col-xs-12" id="parentReport" style="font-size:22px">
+        <tr>
+            <td class="col-xs-3"></td>
+            <td class="col-xs-3"></td>
+            <td class="col-xs-3"> </td>
+            <td class="col-xs-3"></td>
+        </tr>
+        <tr>
+            <td class="col-xs-3"></td>
+            <td class="col-xs-3"></td>
+            <td colspan="2" class="text-center col-xs-3"> Invoice</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="text-center"> Invoice Date</td>
+            <td class="text-center"> Invoice Number</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="text-center">{{invoiceDate}}</td>
+            <td class="text-center">{{invoiceNumber}}</td>
+        </tr>
+        <tr>
+            <td colspan="4"></td>
+        </tr>
+        <tr>
+            <td colspan="4">Service Provider Name: &nbsp;<strong>Functional Learning Center Inc.</strong></td>
+        </tr>
+        <tr>
+            <td colspan="4">Mailing Address: &nbsp; <strong>Victoria</strong></td>
+        </tr>
+        <tr>
+            <td colspan="2">City: &nbsp; <strong>D-1820 Oak Bay Avenue</strong></td>
+            <td colspan="2">Postal Code: &nbsp; <strong>V8R 1B9</strong></td>
+        </tr>
+        <tr>
+            <td colspan="4">Phone Number: &nbsp; <strong>(250) 999-2028</strong></td>
+        </tr>
+        <tr>
+            <td colspan="4"><small><i>If the payee different from above complete this section</i></small></td>
+        </tr>
+        <tr>
+            <td colspan="4"></td>
+        </tr>
+        <tr>
+            <td colspan="4">Payee Name:</td>
+        </tr>
+        <tr>
+            <td colspan="4">Mailing Address:</td>
+        </tr>
+        <tr>
+            <td colspan="2">City:</td>
+            <td colspan="2">Postal Code:</td>
+        </tr>
+        <tr>
+            <td colspan="4">Phone Number:(&nbsp; &nbsp; &nbsp; &nbsp;)</strong>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="3"><small>Bill To: Autism Funding Unit</small></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="3"><small>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Ministry of Children and Family Development</small></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="3"><small>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PO Box 9776 STN PROV GOVT</small></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="3"><small>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Victoria BC V8W 9S5</small></td>
+        </tr>
+        <tr>
+            <td colspan="4">Billing Number: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AFP1-{{billingNumber}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Client Name (Child):&nbsp;{{childName}} &nbsp; {{lastName}}</td>
+        </tr>
+        <tr>
+            <td>Month Service Provided:</td>
+            <td>{{month|date:MMM}}</td>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <table class="table-responsive table-bordered table-striped col-xs-12">
+                    <tr>
+                        <th>Type Of Service</th>
+                        <th>Date</th>
+                        <th>Hours</th>
+                        <th>Rate/Hour</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr ng-repeat="c in content">
+                        <td>{{c.typeService}}</td>
+                        <td>{{c.date|date:format:'M/d/yy'}}</td>
+                        <td>{{c.numberOfHour}}</td>
+                        <td>{{c.ratePerHour}}</td>
+                        <th>{{c.totalAmount}}</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3"></td>
+                        <td>Total Service</td>
+                        <td>{{total}}&dollar;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"></td>
+                        <td>Total GST/HST</td>
+                        <td>0&dollar;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"></td>
+                        <td>Total Amount</td>
+                        <td>{{total}} &dollar;</td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4"></td>
+        </tr>
+        <tr>
+            <td><strong> Provider Signature</strong></td>
+            <td ng-show="showSignature"><input type="text" placeholder="Signature" class="form-control" ng-model="signaturePerson" /><button class="btn btn-default" ng-click="saveSignature()">Save change</button></td>
+            <td ng-hide="showSignature">{{signaturePerson}}</td>
+            <td><strong>Parent Signature</strong></td>
+            <td></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <div class="row">
+        <div ng-show="displayMail" class="col-xs-4 text-center">
+            <input type="email" placeholder="example@gmail.com" class="form-control" ng-model="mail" />
+            <button class="btn btn-default" ng-click="sendFile()">Send Email</button>
+        </div>
+    </div>
+
+
+    <br><br>
+
+
+    <div class="row">
+        <button class="btn btn-info" ng-click="download()">Download<i class="fa fa-download" aria-hidden="true"></i></button>
+        <button class="btn btn-info" ng-click="enterMail()">Enter Email<i class="fa fa-envelope" aria-hidden="true"></i></button>
+        <button class="btn btn-info" ng-click="addSignature()">Edit Signature</button>
+        <a href="/#/invoiceReport" class="btn btn-primary">Back</a>
+    </div>

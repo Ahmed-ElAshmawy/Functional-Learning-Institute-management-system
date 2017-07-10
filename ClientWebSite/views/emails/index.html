@@ -1,0 +1,50 @@
+<h3>
+    Emails <i class="fa fa-address-card-o" aria-hidden="true"></i>
+</h3>
+<div ng-show="isLoading" ng-include="'./views/loading.html'"></div>
+
+<div ng-hide="isLoading">
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Emails</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="e in emails track by $index">
+                    <td id="e.id">{{e.email}}</td>
+                    <td>
+                        <button class="btn btn-warning" ng-click="showupdate(e.email,e.id)">Update</button>
+                        <button class="btn btn-danger" ng-click="confirmdelete(e.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <a class="btn btn-primary" ng-click="showcreate()">
+        <i class="fa fa-plus" aria-hidden="true"></i> Create</a>
+    <a class="btn btn-success" ng-href="#/parent">
+        <i class="fa fa-undo" aria-hidden="true"></i> Back</a>
+
+
+    <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Delete Email</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this Email?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="delete()">Confirm Delete</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
